@@ -1,0 +1,65 @@
+ <h1>editar pelicula</h1>
+ <form action="/admin/admin/editar" method="POST" enctype="multipart/form-data" style="margin: 0px 30px ;">
+                                  <input type="hidden" value="{{producto.id}}"name="id">
+
+                    <section class="categorias">
+                        
+                        <article class="Datos-producto">
+                           
+                            <div class="nombre">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" name="nombre" id="nombreP" value="{{producto.nombre}}">
+                                
+                            </div>
+                            <div class="description">
+                                <label for="descripcion">Descripcion</label>
+                                <input type="text" name="descripcion"  id="marcaP" value="{{producto.descripcion}}">
+                                
+                            </div>
+                            <div class="nombre">
+                                <label for="tipo">Tipo</label>
+                                <input type="text" name="tipo" id="nombreP" value="{{producto.tipo}}">
+                                
+                            </div>
+                              <div class="description">
+                                <label for="urldegithub">URLdeGitHub</label>
+                                <input type="text" name="urldegithub"  id="marcaP" value="{{producto.urldegithub}}" >
+                                
+                            </div>
+        
+                            <div class="precio">
+                                <label for="participantes">Participantes</label>
+                                <input type="number" name="participantes" value ="{{producto.participantes}}" >
+                                
+                            </div>
+                        </article>
+                        
+                        
+                       
+
+            
+                    </section>
+                    
+                   
+                        <section>
+                            <article class="carga-fotos">
+                                <label for="">Fecha de inicio</label><input name="inicio" type="date" value="{{producto.inicio}}">
+                                <label for="imagenes">Subir imágenes</label>
+                                <input id="imagenP" type="file" name="imagenes" accept="image/*" value="{{producto.imagenes}}">
+                                <div class="checkbox"><input class="checkbox" type="checkbox" name="img_delete" value="1">Desea eliminar la imagen vieja?
+                                <input type="hidden" name="img_original" value="{{producto.imagenes}}"></div>
+                            </article>
+                        </section>
+                        <article class="boton-carga-producto">
+                            <label for="producto-nuevo" method=""></label>
+                            <button class="boton-guardar-producto" type="submit">actualizar pelicula</button>
+                        </article>
+                        <article class="boton-carga-producto">
+                            <label for="volverAtrás" method=""></label>
+                            <a href='/admin/admin' class="botonVistaAdministrador">Volver a la vista de administrador</a>
+                        </article>
+                    </section>
+                </form>
+                {{#if error}}
+                <p>{{message}}</p>
+                {{/if}}

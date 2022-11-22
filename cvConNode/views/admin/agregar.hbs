@@ -1,0 +1,60 @@
+ <h1>Agregar Proyecto</h1>
+ <form action="/admin/admin/agregar" method="POST" style="margin: 0px 30px ;" enctype="multipart/form-data">
+                    <section class="categorias">
+                        <article class="Datos-producto">
+                            <div class="description">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" name="nombre" id="nombreP" >
+                                
+                            </div> 
+                            <div class="description">
+                                <label for="descripcion">Descripcion</label>
+                                <input type="text" name="descripcion"  id="marcaP" >
+                                
+                            </div>
+                              <div class="description">
+                                <label for="tipo">Tipo</label>
+                                <input type="text" name="tipo"  id="marcaP" >
+                                
+                            </div>
+                             </div>
+                              <div class="description">
+                                <label for="urldegithub">La URL del GitHub</label>
+                                <input type="text" name="urldegithub"  id="marcaP" >
+                                
+                            </div>
+        
+                            <div class="description">
+                                <label for="participantes">Participantes</label>
+                                <input type="number" name="participantes"  >
+                                
+                            </div>
+                        </article>
+                        
+                        
+                      
+
+            
+                    </section>
+                    
+                   
+                        <section class="sectionDeProyectos">
+                            <article class="carga-fotos">
+                                <label for="">Cuando lo empeze</label><input name="inicio" type="date">
+                                <label for="imagenes">Subir imágenes</label>
+                                <input id="imagenP" type="file" name="imagenes" accept="image/*" >
+                            </article>
+                        </section>
+                        <article class="boton-carga-producto">
+                            <label for="producto-nuevo" method=""></label>
+                            <button class="boton-guardar-producto" type="submit">Cargar pelicula</button>
+                        </article>
+                        <article class="boton-carga-producto">
+                            <label for="volverAtrás" method=""></label>
+                            <a href='/admin/admin' class="botonVistaAdministrador">Volver a la vista de administrador</a>
+                        </article>
+                    </section>
+                </form>
+                {{#if error}}
+                <p>{{message}}</p>
+                {{/if}}
