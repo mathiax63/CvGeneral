@@ -2,12 +2,14 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import ProyectosGeneral from '../components/utilidades/ProyectosGeneral'
+import DIplomas from '../components/utilidades/Diplomas'
 
 
 
  const Principal = (props) => {
    const [loading, setLoading] = useState(false)
    const [Proyectosgeneral, setProyectosgeneral] = useState([])
+   const [Diplomas, setDiplomas] = useState([])
    
 
 
@@ -17,6 +19,10 @@ import ProyectosGeneral from '../components/utilidades/ProyectosGeneral'
         setLoading(true);
         const proyectosapi = await axios.get(`${process.env.REACT_APP_API_URL}/api/a`);
         setProyectosgeneral(proyectosapi.data)
+
+        const diplomaapi = await axios.get(`${process.env.REACT_APP_API_URL}/api/b`)
+        setDiplomas(diplomaapi.data)
+
         setLoading(false)
       };
       cargarTodo();
@@ -73,17 +79,17 @@ import ProyectosGeneral from '../components/utilidades/ProyectosGeneral'
             <h2>Diplomas</h2>
             <section className='diplomas'>
                 
-                <article className='proyectos'><a className='aProyectos' href="./DiplomasInfo"><img class="imgPaginas" src="./img/tituloDHimgpng.png" alt=""/></a>
-                    <aside>Diploma Digital House</aside>
-                </article>
-                <article className='proyectos'><a className='aProyectos' href="./DiplomasInfo"><img class="imgPaginas" src="./img/titulo_webBasico.png"
-                            alt=""/></a>
-                    <aside>Diploma Curso JavaScript UTN</aside>
-                </article>
-
-                <article className='proyectos'><a className='aProyectos' href="./DiplomasInfo"><img class="imgPaginas" src="./img/tituloUTNFullStack.png" alt=""/></a>
-                    <aside>Diploma Curso de desarollo Web Full Stack en la UTN</aside>
-                </article>
+                {
+                    loading ? (
+                        <p>cargando...</p>
+                    ) : (
+                        Diplomas.map(item => <DIplomas key={item.id}
+                            titulo={item.titulo}
+                            imagen={item.imagen}
+                            body={item.cuerpo}                        
+                        />)
+                    )
+                }
             </section>
 
         </div>

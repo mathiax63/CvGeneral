@@ -195,6 +195,57 @@ router.get("/eliminar/:id", async(req, res, next) =>{
 })
 
 
+router.get("/editarDiploma/:id", async(req, res, next) =>{
+  let id =req.params.id; 
+  let producto = await cvBase.borrarDiploma(id)
+
+  producto.fechadeinicio = `${producto.fechadeinicio.toISOString().substring(0,10)}`;
+
+  res.render("admin/editarDiploma",{
+    layout: "admin/layout",
+    producto
+  })
+})
+
+router.post("/editarDiploma", async (req, res, next) =>{
+  try {
+    let imagenes= req.body.img_original
+    let borrar_vieja = false
+
+    if(req.body.img_delete === "1"){
+      imagenes =null;
+      borrar_vieja= true;
+    }else{
+      if(req.files && Object.keys(req.files).length > 0){
+        imagen = req.files.imagenes;
+        imagenes = (await uploader(imagen.tempFilePath)).public_id;
+        borrar_vieja= true
+      }
+    }
+    if(borrar_vieja && req.body.img_original){
+      await (destroy(req.body.img_original))
+    }
+    let obj = {
+      academia: req.body.academia,
+      titulo: req.body.titulo,
+      descripcion: req.body.descripcion,
+      fechadeinicio: req.body.fechadeinicio,
+      descargadiploma: req.body.descargadiploma,
+      imagenes
+    }
+    console.log(obj)
+    await cvBase.modificarDiploma(obj, req.body.id)
+    res.redirect("/admin/admin")
+  }
+  catch(error){
+    console.log(error)
+    res.render("admin/editarDiploma",{
+      layout: "admin/layout",
+      error: true,
+      message:"no se pudo editar"
+    })
+  }
+})
 
 router.get("/editar/:id", async (req, res, next) =>{
   

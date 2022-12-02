@@ -1,5 +1,5 @@
- <h1>editar pelicula</h1>
- <form action="/admin/admin/editar" method="POST" enctype="multipart/form-data" style="margin: 0px 30px ;">
+<h1>Editar Diploma</h1>
+ <form action="/admin/admin/editarDiploma" method="POST" enctype="multipart/form-data" style="margin: 0px 30px ;">
                                   <input type="hidden" value="{{producto.id}}"name="id">
 
                     <section class="categorias">
@@ -7,8 +7,8 @@
                         <article class="Datos-producto">
                            
                             <div class="description">
-                                <label for="nombre">Nombre</label>
-                                <input type="text" name="nombre" id="nombreP" value="{{producto.nombre}}">
+                                <label for="titulo">Titulo</label>
+                                <input type="text" name="titulo" id="nombreP" value="{{producto.titulo}}">
                                 
                             </div>
                             <div class="description">
@@ -16,20 +16,15 @@
                                 <input type="text" name="descripcion"  id="marcaP" value="{{producto.descripcion}}">
                                 
                             </div>
-                            <div class="description">
-                                <label for="tipo">Tipo</label>
-                                <input type="text" name="tipo" id="nombreP" value="{{producto.tipo}}">
-                                
-                            </div>
                               <div class="description">
-                                <label for="urldegithub">URLdeGitHub</label>
-                                <input type="text" name="urldegithub"  id="marcaP" value="{{producto.urldegithub}}" >
+                                <label for="academia">Academia</label>
+                                <input type="text" name="academia"  id="marcaP" value="{{producto.academia}}" >
                                 
                             </div>
         
                             <div class="description">
-                                <label for="participantes">Participantes</label>
-                                <input type="number" name="participantes" value ="{{producto.participantes}}" >
+                                <label for="descargadiploma">Descarga de diploma</label>
+                                <input type="text" name="descargadiploma" value ="{{producto.descargadiploma}}" >
                                 
                             </div>
                         </article>
@@ -43,7 +38,7 @@
                    
                         <section class="sectionDeProyectos">
                             <article class="carga-fotos">
-                                <label for="">Fecha de inicio</label><input name="inicio" type="date" value="{{producto.inicio}}">
+                                <label for="">Fecha de inicio</label><input name="fechadeinicio" type="date" value="{{producto.fechadeinicio}}">
                                 <label for="imagenes">Subir imágenes</label>
                                 <input id="imagenP" type="file" name="imagenes" accept="image/*" value="{{producto.imagenes}}">
                                 <div class="checkbox"><input class="checkbox" type="checkbox" name="img_delete" value="1">Desea eliminar la imagen vieja?
@@ -52,7 +47,7 @@
                         </section>
                         <article class="boton-carga-producto">
                             <label for="producto-nuevo" method=""></label>
-                            <button class="boton-guardar-producto" type="submit">actualizar pelicula</button>
+                            <button class="boton-guardar-producto" type="submit">actualizar Diploma</button>
                         </article>
                         <article class="boton-carga-producto">
                             <label for="volverAtrás" method=""></label>

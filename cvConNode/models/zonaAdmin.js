@@ -56,7 +56,7 @@ async function borrarProyecto(id) {
     let rows = await pool.query(query, [id]);
     return rows[0]
 }
-async function borarrDiploma(id) {
+async function borrarDiploma(id) {
     let query = "select * from diplomas where id = ?"
     let rows = await pool.query(query, [id]);
     return rows[0]
@@ -71,6 +71,16 @@ async function modificarecho(obj, id){
         throw error
     }
 }
+async function modificarDiploma(obj, id){
+    try{
+        let query= "update diplomas set ? where id =?"
+        let rows = await pool.query(query,[obj, id]);
+        return rows;
+    }catch(error){
+        throw error
+    }
+
+}
 async function proyectosDetalles(){
     let query = "select * from proyectos where id = ?";
     let rows = await pool.query(query, [id]);
@@ -79,4 +89,4 @@ async function proyectosDetalles(){
 
 
 
-module.exports = {todosLosproyectos, agregarProyecto, borrarProyectos,borarrDiploma, borrarProyecto, modificarecho, todosLosdiplomas, agregarDiploma, borrarDiplomas, proyectosDetalles}
+module.exports = {todosLosproyectos, agregarProyecto, borrarProyectos,borrarDiploma, borrarProyecto, modificarecho ,modificarDiploma , todosLosdiplomas, agregarDiploma, borrarDiplomas, proyectosDetalles}
