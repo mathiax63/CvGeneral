@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import ProyectosGeneral from '../components/utilidades/ProyectosGeneral'
 import DIplomas from '../components/utilidades/Diplomas'
+import { useParams } from 'react-router-dom'
 
 
 
@@ -10,6 +11,9 @@ import DIplomas from '../components/utilidades/Diplomas'
    const [loading, setLoading] = useState(false)
    const [Proyectosgeneral, setProyectosgeneral] = useState([])
    const [Diplomas, setDiplomas] = useState([])
+   const [, setProyectos] = useState([])
+   const { id } = useParams();
+   console.log("llegue?",id)
    
 
 
@@ -22,6 +26,9 @@ import DIplomas from '../components/utilidades/Diplomas'
 
         const diplomaapi = await axios.get(`${process.env.REACT_APP_API_URL}/api/b`)
         setDiplomas(diplomaapi.data)
+
+        /*const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/Paginasinfo/:id`);
+        setProyectos(response.data)*/
 
         setLoading(false)
       };
@@ -70,7 +77,7 @@ import DIplomas from '../components/utilidades/Diplomas'
                     <p>cargando...</p>
                 ) : (
                     Proyectosgeneral.map(item => <ProyectosGeneral key={item.id}
-                        nombre={item.nombre} 
+                        nombre={item.nombre} id={item.id}
                         imagen={item.imagen} body={item.cuerpo} />)
                 )
              }
@@ -84,6 +91,7 @@ import DIplomas from '../components/utilidades/Diplomas'
                         <p>cargando...</p>
                     ) : (
                         Diplomas.map(item => <DIplomas key={item.id}
+                            id={item.id}
                             titulo={item.titulo}
                             imagen={item.imagen}
                             body={item.cuerpo}                        

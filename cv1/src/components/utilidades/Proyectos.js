@@ -2,7 +2,8 @@ import React from "react"
 
 
 const proyectos = (props => {
-    const {  nombre, imagen, descripcion, tipo, participante, inicio, urldegithub, body} = props;
+    const { id, nombre, imagen, descripcion, tipo, participante, inicio, urldegithub, body} = props;
+    console.log(id)
     return (
         <div className='proyectosDetalles'>
         <img src={imagen} className='imgDetallesDeProyecto' />

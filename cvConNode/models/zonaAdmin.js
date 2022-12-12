@@ -86,7 +86,11 @@ async function proyectosDetalles(){
     let rows = await pool.query(query, [id]);
     return rows[0]
 }
+async function find(id) {
+    let rows = this.readFile();
+    return rows.find(proyectos => proyectos.id == id);
+}
 
 
 
-module.exports = {todosLosproyectos, agregarProyecto, borrarProyectos,borrarDiploma, borrarProyecto, modificarecho ,modificarDiploma , todosLosdiplomas, agregarDiploma, borrarDiplomas, proyectosDetalles}
+module.exports = {find,todosLosproyectos, agregarProyecto, borrarProyectos,borrarDiploma, borrarProyecto, modificarecho ,modificarDiploma , todosLosdiplomas, agregarDiploma, borrarDiplomas, proyectosDetalles}

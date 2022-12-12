@@ -5,15 +5,15 @@ import Proyectos from '../components/utilidades/Proyectos'
 import { useParams } from 'react-router-dom'
 
 export const PaginasInfo = (promps) => {
-   const { id } = useParams();
    const [loading, setLoading] =useState(false)
    const [proyectos, setProyectos] = useState([])
-   console.log("holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",id)
+   const { id } = useParams();
+   console.log("llegue?",id)
 
    useEffect(() => {
     const cargarProyecto = async() =>{
       setLoading(true);
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/PaginasInfo/${id}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/Paginasinfo/:id`);
       setProyectos(response.data)
       setLoading(false)
     };
