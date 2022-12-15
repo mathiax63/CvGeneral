@@ -82,15 +82,18 @@ async function modificarDiploma(obj, id){
 
 }
 async function proyectosDetalles(){
+    let query ="select * from proyectos"
+    let rows = await pool.query(query)
+    return rows
+}
+
+async function proyectosDetallesPorId(id){
     let query = "select * from proyectos where id = ?";
     let rows = await pool.query(query, [id]);
     return rows[0]
 }
-async function find(id) {
-    let rows = this.readFile();
-    return rows.find(proyectos => proyectos.id == id);
-}
 
 
 
-module.exports = {find,todosLosproyectos, agregarProyecto, borrarProyectos,borrarDiploma, borrarProyecto, modificarecho ,modificarDiploma , todosLosdiplomas, agregarDiploma, borrarDiplomas, proyectosDetalles}
+
+module.exports = {proyectosDetallesPorId,todosLosproyectos, agregarProyecto, borrarProyectos,borrarDiploma, borrarProyecto, modificarecho ,modificarDiploma , todosLosdiplomas, agregarDiploma, borrarDiplomas, proyectosDetalles}

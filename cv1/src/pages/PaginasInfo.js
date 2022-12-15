@@ -13,12 +13,12 @@ export const PaginasInfo = (promps) => {
    useEffect(() => {
     const cargarProyecto = async() =>{
       setLoading(true);
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/Paginasinfo/:id`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/Paginasinfo/${id}`);
       setProyectos(response.data)
       setLoading(false)
     };
     cargarProyecto();
-   }, []);
+   }, [id]);
 
 
    
@@ -29,7 +29,7 @@ export const PaginasInfo = (promps) => {
                     <p>cargando...</p>
                 ) : (
                     proyectos.map(item => <Proyectos key={item.id}
-                        nombre={item.nombre} descripcion={item.desctipcion} tipo={item.tipo}
+                        id={item.id}nombre={item.nombre} descripcion={item.desctipcion} tipo={item.tipo}
                         participantes={item.participantes} inicio={item.inicio} urldegithub={item.urldegithub}
                         imagenes={item.imagenes} body={item.cuerpo} />)
                 )

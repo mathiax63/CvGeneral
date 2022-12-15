@@ -157,7 +157,7 @@ router.get('/contacto', async function(req, res, next) {
         
     
 
-                /*  router.get('/Paginasinfo', async function(req, res, next) {
+                  router.get('/Paginasinfo', async function(req, res, next) {
 
                     let titulosYSinopsis = await todosLosDatos.proyectosDetalles()
                     
@@ -180,23 +180,37 @@ router.get('/contacto', async function(req, res, next) {
                     })
                     res.json(titulosYSinopsis)
                       });
-                      */
+                      
             
             
             
-                  router.get('/Paginasinfo/:id', async function(req, res, next) { 
-                   const product = todosLosDatos.find(req.params.id);
-                   console.log(product)
+                 /* router.get('/Paginasinfo/${id}', async function(req, res, next) { 
+                   const product = todosLosDatos.proyectosDetalles(req.params.id);
                    if (product) {
-                       res.render('Paginasinfo', { product });
+                       res.render('Paginasinfo/${id}', { product });
                    } else {
                        res.render('404');
                    }
                       
                   
-                      })
+                      })*/
                   
                     
-                    
+                      router.get('/Paginasinfo/:id', async function(req, res, next) {
+                          let titulosYFoto = await todosLosDatos.proyectosDetallesPorId(req.params.id)
+                          //console.log(titulosYFoto)                                                                        
+                          
+                            if(titulosYFoto.imagenes){
+                              titulosYFoto.imagenes =  cloudinary.image(titulosYFoto.imagenes,{                               
+                                width:200,
+                                height:200,
+                                crop:"fill"
+                              });                       
+                            }                                                
+                            res.render('Paginasinfo', {
+                              layout: "layout",
+                              titulosYFoto
+                            });
+                          });
     
     module.exports = router

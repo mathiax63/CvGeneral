@@ -27,7 +27,7 @@ import { useParams } from 'react-router-dom'
         const diplomaapi = await axios.get(`${process.env.REACT_APP_API_URL}/api/b`)
         setDiplomas(diplomaapi.data)
 
-        /*const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/Paginasinfo/:id`);
+        /*const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/Paginasinfo/${id}`);
         setProyectos(response.data)*/
 
         setLoading(false)
