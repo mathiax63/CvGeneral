@@ -13,6 +13,8 @@ import { useParams } from 'react-router-dom'
    const [Diplomas, setDiplomas] = useState([])
    const [, setProyectos] = useState([])
    const { id } = useParams();
+   
+
    console.log("llegue?",id)
    
 
@@ -46,9 +48,9 @@ import { useParams } from 'react-router-dom'
             <div class="imagenMasPresentacion">
                 <img class="imgCara" src="./img/Sin título.png"/>
                 <p>Hola soy Mathias Reid tengo 21 años, estudio Desarrollo Web Full Stack, no tengo experiencia laboral
-                    pero si academica, con ganas de trabajar y desarollarme en el mundo laboral de la programacion, soy
+                    pero si academica, con ganas de trabajar y desarrollarme en el mundo laboral de la programacion, soy
                     de Zelaya en pilar, siempre me intereso la programacion
-                    , me empeze a formar hace un año y actualmente continuo mi estoduion en cursos de programacion </p>
+                    , me empecé a formar hace un año y actualmente continuo mi estudio en cursos de programacion </p>
             </div>
             <h2>Fecha de nacimiento</h2>
             <p>30/10/2000</p>
@@ -56,7 +58,7 @@ import { useParams } from 'react-router-dom'
             <h2>Gustos</h2>
             <ul>
                 <li>
-                    <p>el deporte</p>
+                    <p>El deporte</p>
                 </li>
                 <li>
                     <p>Salir a caminar en la semana</p>

@@ -21,7 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Principal/>}/>
         <Route path="PaginasInfo/:id" element={<PaginasInfo/>}/>
-        <Route path='DiplomasInfo' element={<DiplomasInfo/>}/>
+        <Route path="DiplomasInfo/:id" element={<DiplomasInfo/>}/>
         </Routes>
         </BrowserRouter>
       <Footer/>

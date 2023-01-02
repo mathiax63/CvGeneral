@@ -7,6 +7,7 @@ const uploader = util.promisify(cloudinary.uploader.upload)
 const destroy = util.promisify(cloudinary.uploader.destroy)
 
 
+
 router.get('/', async function(req, res, next) {
 
 let titulosYSinopsis = await cvBase.todosLosdiplomas()
@@ -88,7 +89,7 @@ try{
 
 
   if(req.body.nombre != "" && req.body.descripcion != ""){
-      //estos if array.isArray sirven para los checkbox
+     
 
       console.log(req.body.nombre)
       console.log(req.body.id)
@@ -172,7 +173,7 @@ try{
 router.get("/eliminarDiploma/:id", async(req, res, next) =>{
   let id = req.params.id;
   
-  let img = await cvBase.borarrDiploma(id)
+  let img = await cvBase.borrarDiploma(id)
   if (img.imagenes){
     console.log("llegue1?")
     await(destroy(img.imagenes))
@@ -199,7 +200,8 @@ router.get("/editarDiploma/:id", async(req, res, next) =>{
   let id =req.params.id; 
   let producto = await cvBase.borrarDiploma(id)
 
-  producto.fechadeinicio = `${producto.fechadeinicio.toISOString().substring(0,10)}`;
+  producto.inicio = `${producto.inicio.toISOString().substring(0,10)}`;
+  producto.cierre = `${producto.cierre.toISOString().substring(0,10)}`;
 
   res.render("admin/editarDiploma",{
     layout: "admin/layout",
@@ -229,7 +231,8 @@ router.post("/editarDiploma", async (req, res, next) =>{
       academia: req.body.academia,
       titulo: req.body.titulo,
       descripcion: req.body.descripcion,
-      fechadeinicio: req.body.fechadeinicio,
+      inicio: req.body.inicio,
+      cierre: req.body.cierre,
       descargadiploma: req.body.descargadiploma,
       imagenes
     }
@@ -253,6 +256,7 @@ router.get("/editar/:id", async (req, res, next) =>{
   let producto = await cvBase.borrarProyecto(id)
 
   producto.inicio = `${producto.inicio.toISOString().substring(0,10)}`;
+  producto.cierre = `${producto.cierre.toISOString().substring(0,10)}`;
   
   res.render("admin/editar", {
     layout: "admin/layout",
@@ -287,9 +291,11 @@ router.post("/editar", async (req, res, next) => {
       tipo: req.body.tipo,
       urldegithub: req.body.urldegithub,
       inicio: req.body.inicio,
+      cierre: req.body.cierre,
       imagenes
     }
     console.log(obj)
+    
     await cvBase.modificarecho(obj, req.body.id);
     res.redirect("/admin/admin");
   }

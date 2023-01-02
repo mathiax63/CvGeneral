@@ -37,7 +37,7 @@ router.get('/', async function(req, res, next) {
         const mail={
           to:"mathyoyo@hotmail.es",
           subject:"contacto web",
-          html: `${req.body.email} se contacto a traves de la web y quiere hablar ${req.body.pedido}`
+          html: `${req.body.email} se contacto a traves de la web y quiere hablar ${req.body.trabajo}`
         }
         
         const transport = nodemailer.createTransport({
@@ -51,7 +51,7 @@ router.get('/', async function(req, res, next) {
         await transport.sendMail(mail)
         res.status(201).json({
           error: false,
-          message: "mensaje enviado"
+          message: "Mensaje enviado, lo estare contactando por Email en la brebedad"
         })
       })
       
@@ -84,8 +84,9 @@ router.get('/contacto', async function(req, res, next) {
               router.get('/a', async function(req, res, next) {
 
                 let todosLosProyectos = await todosLosDatos.todosLosproyectos()
-                
+
                 todosLosProyectos = todosLosProyectos.map(proyectos =>{
+                  
                   if(proyectos.imagenes){
                     const imagen = cloudinary.url(proyectos.imagenes,{                     
                       crop:"fill"
@@ -180,37 +181,58 @@ router.get('/contacto', async function(req, res, next) {
                     })
                     res.json(titulosYSinopsis)
                       });
-                      
-            
-            
-            
-                 /* router.get('/Paginasinfo/${id}', async function(req, res, next) { 
-                   const product = todosLosDatos.proyectosDetalles(req.params.id);
-                   if (product) {
-                       res.render('Paginasinfo/${id}', { product });
-                   } else {
-                       res.render('404');
-                   }
-                      
-                  
-                      })*/
-                  
-                    
+                                                                    
                       router.get('/Paginasinfo/:id', async function(req, res, next) {
                           let titulosYFoto = await todosLosDatos.proyectosDetallesPorId(req.params.id)
-                          //console.log(titulosYFoto)                                                                        
+                          //console.log(titulosYFoto) 
                           
-                            if(titulosYFoto.imagenes){
-                              titulosYFoto.imagenes =  cloudinary.image(titulosYFoto.imagenes,{                               
-                                width:200,
-                                height:200,
+                                                 
+                          
+                            if(titulosYFoto.imagenes){                                                                       
+                              titulosYFoto.imagenes =  cloudinary.url(titulosYFoto.imagenes,{                              
+                                
                                 crop:"fill"
                               });                       
                             }                                                
-                            res.render('Paginasinfo', {
-                              layout: "layout",
-                              titulosYFoto
-                            });
+                            res.json(titulosYFoto);
                           });
+
+
+                          router.get('/DiplomasInfo', async function(req, res, next) {
+
+                            let diplomsaInfo = await todosLosDatos.todosLosdiplomas()
+                            
+                            diplomsaInfo = diplomsaInfo.map(diploma =>{
+                              if(diploma.imagenes){
+                                const imagen = cloudinary.url(diploma.imagenes,{
+                              
+                                  crop:"fill"
+                                });
+                                return {
+                                  ...diploma,
+                                  imagen
+                                }
+                              }else{
+                                return {
+                                  ...diploma,
+                                  imagen:" "
+                                }
+                              }
+                            })
+                            res.json(diplomsaInfo)
+                              });
+
+                              router.get('/DiplomasInfo/:id', async function(req, res, next) {
+                                let diplomaInfo = await todosLosDatos.diplomaPorId(req.params.id)
+                                //console.log(titulosYFoto)                                                                        
+                                    
+                                  if(diplomaInfo.imagenes){
+                                    diplomaInfo.imagenes =  cloudinary.url(diplomaInfo.imagenes,{                              
+                                      
+                                      crop:"fill"
+                                    });                       
+                                  }                                                
+                                  res.json(diplomaInfo);
+                                });
     
     module.exports = router

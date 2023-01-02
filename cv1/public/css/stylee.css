@@ -126,3 +126,10 @@ h1{
    margin: 30px 10px; 
    
 }
+.textoDeFecha{
+    display: flex;
+    
+}
+.textoInternoDeFecha{
+    margin: 0px 10px;
+}

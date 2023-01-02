@@ -93,7 +93,13 @@ async function proyectosDetallesPorId(id){
     return rows[0]
 }
 
+async function diplomaPorId(id){
+    let query = "select * from diplomas where id = ?"
+    let rows = await pool.query(query, [id]);
+    return rows[0]
+}
 
 
 
-module.exports = {proyectosDetallesPorId,todosLosproyectos, agregarProyecto, borrarProyectos,borrarDiploma, borrarProyecto, modificarecho ,modificarDiploma , todosLosdiplomas, agregarDiploma, borrarDiplomas, proyectosDetalles}
+
+module.exports = {proyectosDetallesPorId,todosLosproyectos, agregarProyecto, borrarProyectos,borrarDiploma, borrarProyecto, modificarecho ,modificarDiploma , todosLosdiplomas, agregarDiploma, borrarDiplomas, proyectosDetalles,diplomaPorId}

@@ -1,28 +1,43 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import Diploma from '../components/utilidades/DiplomaInfo'
+import { useParams } from 'react-router-dom'
 
-export const DiplomasInfo = () => {
+export const DiplomaInfo = (promps) => {
+   const [loading, setLoading] =useState(false)
+   const [diploma, setDiploma] = useState()
+   const { id } = useParams();
+   console.log("llegue?",id)
+
+   useEffect(() => {
+    const cargarDiploma = async() =>{
+      setLoading(true);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/DiplomasInfo/${id}`);
+      setDiploma(response.data)
+      setLoading(false)
+    };
+    cargarDiploma();
+   }, [id]);
+   //const proyectosjson = Object.values(proyectos)
+   //console.log(proyecto)
+   //console.log(proyectosjson)
+
+
+   
   return (
     <div>
-        <div className='proyectosDetalles'>
-        <img src="./img/tituloDHimgpng.png" className='imgDetallesDeProyecto' />
-     <section className='sectionDePaginasDetealles'><article  className='detallesDeInformacionDeProyecto'>
-        <h2>detalles</h2>
-        <h3>Academia</h3>
-        <p>Digital House</p>
-        <h3>Titulo</h3>
-        <p>Programacion Web Full Stack</p>
-        <h3>Descripcion</h3>
-        <p>Curso intensivo de 6 meses de duracion </p>
-        <h3>Fecha de inicio y cierre</h3>
-        <p> 02/02/2021 - 12/08/2021</p>
-        <h3>Descargar</h3>
-        <a href='../docs/diplomaDH.pdf' download="MathiasReidDiplomaDH">Click para descargar el archivo</a>
-        </article><div className="divDeBotonRegreso">
-        <a className='botonRegreso' href='/'>Volver al menu</a></div>
-        </section>
-     </div>
+        {
+                loading ? (
+                    <p>cargando...</p>
+                ) : (
+                  diploma && <Diploma key={diploma.id}
+                        id={diploma.id}academia={diploma.academia} descripcion={diploma.descripcion} tipo={diploma.tipo}
+                        titulo={diploma.titulo} inicio={diploma.inicio} cierre={diploma.cierre}
+                        imagenes={diploma.imagenes} body={diploma.cuerpo} />
+                )
+             }
      </div>
   )
 }
 
-export default DiplomasInfo
+export default DiplomaInfo

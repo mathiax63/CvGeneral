@@ -52,17 +52,18 @@ export const Footer = () => {
         <div class="contenedorDePedirPeliculas">
         <div class="divPedirPeliculas">
           <label class="labelDePedirPelicula" for="email">Su Email :</label>
-        <input class="inputPedirPeli" type="text" name="email" value={formData.email} onChange={handleChange}/>
+        <input class="inputPedirPeli" type="text" name="email" value={formData.email} onChange={handleChange} required/>
       </div>
       <div class="divPedirPeliculas">
         <label class="labelDePedirPelicula" for="trabajo">Su peticion/consulta :</label>
-        <input class="inputPedirPeli" type="text" name="trabajo" value={formData.trabajo} onChange={handleChange}/>        
+        <input class="inputPedirPeli" type="text" name="trabajo" value={formData.trabajo} onChange={handleChange} required/>        
     </div>
     <button type="submit" class="btn-btn-primary" className="margin: 0px;">Enviar</button>
-     {sending ? <p>Enviando.....</p> : null}
-    {msg ? <p>{msg}</p> : null}
+     
   </div>
   </form>
+    {sending ? <p>Enviando.....</p> : null}
+    {msg ? <p>{msg}</p> : null}
     
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
