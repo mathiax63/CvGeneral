@@ -7,16 +7,18 @@ router.get('/', function(req, res, next) {
   res.render('login');
 });
 
-router.post("/", async (req, res, next) =>{
+router.post("/", async function (req, res, next) {
   try{
     
     let nombre = req.body.nombre
     let password = req.body.password
     let email =req.body.email
     let data = await usuarioModelo.getUserByUsernameAndPassword(nombre, email, password)
+    
     console.log(data)
-    console.log(nombre)
-    console.log(email)
+    //console.log(nombre)
+    //console.log(email)
+    //console.log(password)
     
 
     if (data != undefined){

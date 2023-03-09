@@ -22,10 +22,15 @@ let apiRouter = require("./routes/api")
 
 var app = express();
 
+let bodyParser = require("body-parser")
 // view engine setup
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -68,7 +73,7 @@ app.use("/admin/admin",secured, adminRouter)
 app.use("/api", cors(),apiRouter)
 
 /*prueba para la base de datos
-pool.query("select * from proyectos").then(function (resultados){
+pool.query("select * from usuario").then(function (resultados){
   console.log(resultados)
 })*/
 // catch 404 and forward to error handler
@@ -77,7 +82,7 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-/*
+
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
@@ -86,8 +91,7 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
-});*/
-
+});
 
 //este codigo hace que se puedan leer los errores 500
 app.use(function(error,req, res, next){

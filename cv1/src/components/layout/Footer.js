@@ -50,6 +50,7 @@ export const Footer = () => {
         <h3>¿le gustaria contactarme?</h3>
         <p>Envie un email y le respondere a la brevedad</p>
         <div class="contenedorDePedirPeliculas">
+          <div className='formularioDelFooter'>
         <div class="divPedirPeliculas">
           <label class="labelDePedirPelicula" for="email">Su Email :</label>
         <input class="inputPedirPeli" type="text" name="email" value={formData.email} onChange={handleChange} required/>
@@ -58,9 +59,11 @@ export const Footer = () => {
         <label class="labelDePedirPelicula" for="trabajo">Su peticion/consulta :</label>
         <input class="inputPedirPeli" type="text" name="trabajo" value={formData.trabajo} onChange={handleChange} required/>        
     </div>
+    </div>
     <button type="submit" class="btn-btn-primary" className="margin: 0px;">Enviar</button>
      
   </div>
+
   </form>
     {sending ? <p>Enviando.....</p> : null}
     {msg ? <p>{msg}</p> : null}

@@ -47,14 +47,19 @@ import { useParams } from 'react-router-dom'
         <div>
             <div class="imagenMasPresentacion">
                 <img class="imgCara" src="./img/Sin título.png"/>
+                <div>
+                <h2>Presentacion</h2>
                 <p>Hola soy Mathias Reid tengo 21 años, estudio Desarrollo Web Full Stack, no tengo experiencia laboral
                     pero si academica, con ganas de trabajar y desarrollarme en el mundo laboral de la programacion, soy
                     de Zelaya en pilar, siempre me intereso la programacion
                     , me empecé a formar hace un año y actualmente continuo mi estudio en cursos de programacion </p>
+                    </div>
             </div>
+            <div className='divDeInfoGeneral'><div className='divDeInfo'>
             <h2>Fecha de nacimiento</h2>
             <p>30/10/2000</p>
-
+            </div>
+            <div className='divDeInfo'> 
             <h2>Gustos</h2>
             <ul>
                 <li>
@@ -67,11 +72,50 @@ import { useParams } from 'react-router-dom'
                     <p>Musica</p>
                 </li>
             </ul>
-
+            </div>
+            <div className='divDeInfo'>
             <h2>Domicilio</h2>
-            <p> Pedro Carrión 480, Zelaya, Provincia de Buenos Aires</p>
+            <p> SENILLOSA 415 caballito</p>
+            </div>
+            <div className='divDeInfo'>         
+            <h2>Tecnologias</h2>
+             
+            <ul>
+                <div className='divDeInfoColubnas'>
+                <li className='ilDeTecnologias'>
+                    <p>REACT</p>
+                </li>
+                <li className='ilDeTecnologias'>
+                    <p>HTML</p>
+                </li>
+                <li className='ilDeTecnologias'>
+                    <p>CSS</p>
+                </li>
+                <li className='ilDeTecnologias'>
+                    <p>Bootstrap</p>
+                </li>
+                <li className='ilDeTecnologias'>
+                    <p>JavaScript</p>
+                </li>
+                <li className='ilDeTecnologias'>
+                    <p>Bases de datos con MYSQL</p>
+                </li>
+                <li className='ilDeTecnologias'>
+                    <p>NODE</p>
+                </li>
+                <li className='ilDeTecnologias'>
+                    <p>API</p>
+                </li>
+                <li className='ilDeTecnologias'>
+                    <p>GitHub</p>
+                </li>
+                </div>
+            </ul>
+            
+            </div>
+            </div>
 
-            <h2>Mis proyectos pasados</h2>
+            <h2>Portfolio</h2>
 
             <section className='proyectosGeneral' >
                     {
@@ -85,7 +129,7 @@ import { useParams } from 'react-router-dom'
              }
              </section>
                 
-            <h2>Diplomas</h2>
+            <h2>Certificados </h2>
             <section className='diplomas'>
                 
                 {

@@ -3,7 +3,7 @@ const proyectosgeneral = (props => {
     return (
         
         <article className='proyectos'><a className='aProyectos' href={'/Paginasinfo/'+id} as='./Paginasinfo/{id}'><img class="imgPaginas" src={imagen} /></a>
-                    <aside>{nombre}</aside>
+                    <aside className="nombreDeProyecto">{nombre}</aside>
                     <div dangerouslySetInnerHTML={{__html:body}} />
                     
                 </article>

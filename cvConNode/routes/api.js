@@ -51,7 +51,7 @@ router.get('/', async function(req, res, next) {
         await transport.sendMail(mail)
         res.status(201).json({
           error: false,
-          message: "Mensaje enviado, lo estare contactando por Email en la brebedad"
+          message: "Mensaje enviado, lo estare contactando por Email en la brevedad"
         })
       })
       
@@ -127,34 +127,7 @@ router.get('/contacto', async function(req, res, next) {
                     })
                     res.json(diplomas)
                       }
-                    )
-
-                    router.post("/contacto", async (req,res) =>{
-                      if (!req.body || !req.body.email) {
-                        res.status(400).json ({
-                          error: false
-                        })}
-                      const mail={
-                        to:"mathyoyo@hotmail.es",
-                        subject:"contacto web",
-                        html: `${req.body.email} se contacto a traves de la web y quiera pedir la pelicula ${req.body.trabajo}`
-                      }
-                      
-                      const transport = nodemailer.createTransport({
-                        host: process.env.SMTP_HOST,
-                        port: process.env.SMTP_PORT,
-                        auth:{
-                          user: process.env.SMTP_USER,
-                          pass: process.env.SMTP_PASS
-                        }
-                      })
-                      await transport.sendMail(mail)
-                      res.status(201).json({
-                        error: false,
-                        message: "mensaje enviado"
-                      })
-                    })
-                  
+                    )        
         
     
 
@@ -185,12 +158,9 @@ router.get('/contacto', async function(req, res, next) {
                       router.get('/Paginasinfo/:id', async function(req, res, next) {
                           let titulosYFoto = await todosLosDatos.proyectosDetallesPorId(req.params.id)
                           //console.log(titulosYFoto) 
-                          
-                                                 
-                          
+                                                                                    
                             if(titulosYFoto.imagenes){                                                                       
-                              titulosYFoto.imagenes =  cloudinary.url(titulosYFoto.imagenes,{                              
-                                
+                              titulosYFoto.imagenes =  cloudinary.url(titulosYFoto.imagenes,{                                   
                                 crop:"fill"
                               });                       
                             }                                                

@@ -3,7 +3,7 @@ const diplomas = (props =>{
     
     return(
         <article className='proyectos'><a className='aProyectos' href={'/DiplomasInfo/'+id} as='./Paginasinfo/{id}'><img class="imgPaginas" src={imagen} /></a>
-        <aside>{titulo}</aside>
+        <aside className="nombreDecertificados">{titulo}</aside>
         <div dangerouslySetInnerHTML={{__html:body}} />
     </article>
     )
