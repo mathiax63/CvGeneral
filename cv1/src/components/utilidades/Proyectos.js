@@ -1,4 +1,4 @@
-import React from "react"
+import React,{useState} from "react"
 import moment from "moment";
 
 
@@ -8,6 +8,15 @@ const proyectos = (props => {
     const fechaDeCierre = new Date(cierre);
     const fechaDeInicio = new Date(inicio);
     console.log(id)
+    const [contenido, setContenido] = useState('Volver al menu');
+
+    const cambiarContenido = () => {
+      setContenido('Gracias por ver');
+    };
+  
+    const restaurarContenido = () => {
+      setContenido('Volver al menu');
+    };
     //console.log(inicio+"hola")
     return (
         <div className='proyectosDetalles'>
@@ -28,7 +37,7 @@ const proyectos = (props => {
         <a href=''>{urldegithub}</a>
         </article><div className="divDeBotonRegreso">
         <div dangerouslySetInnerHTML={{__html:body}} />
-        <a className='botonRegreso' href='/'>Volver al menu</a></div>
+        <a onMouseOver={cambiarContenido}  onMouseOut={restaurarContenido} className='botonRegreso' href='/'>{contenido}</a></div>
         </section>
      </div>
     

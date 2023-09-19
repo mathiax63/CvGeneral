@@ -47,15 +47,15 @@ export const Footer = () => {
     </div>
     <div class="DivFooter">
       <form className="formPP" action="/contacto" onSubmit={handleSubmit} method='post'>
-        <h3>¿le gustaria contactarme?</h3>
+        <h3>¿le gustaria dejarme un email de forma rapida?</h3>
         <p>Envie un email y le respondere a la brevedad</p>
         <div class="contenedorDePedirPeliculas">
           <div className='formularioDelFooter'>
-        <div class="divPedirPeliculas">
+        <div class="divContacto">
           <label class="labelDePedirPelicula" for="email">Su Email :</label>
         <input class="inputPedirPeli" type="text" name="email" value={formData.email} onChange={handleChange} required/>
       </div>
-      <div class="divPedirPeliculas">
+      <div class="divContacto">
         <label class="labelDePedirPelicula" for="trabajo">Su peticion/consulta :</label>
         <input class="inputPedirPeli" type="text" name="trabajo" value={formData.trabajo} onChange={handleChange} required/>        
     </div>

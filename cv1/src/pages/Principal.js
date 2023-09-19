@@ -15,7 +15,7 @@ import { useParams } from 'react-router-dom'
    const { id } = useParams();
    
 
-   console.log("llegue?",id)
+   //console.log("llegue?",id)
    
 
 
@@ -44,7 +44,7 @@ import { useParams } from 'react-router-dom'
     
 
     <main>
-        <div>
+        <div className='divgeneralMain'>
             <div class="imagenMasPresentacion">
                 <img class="imgCara" src="./img/Sin título.png"/>
                 <div>
@@ -98,7 +98,7 @@ import { useParams } from 'react-router-dom'
                     <p>JavaScript</p>
                 </li>
                 <li className='ilDeTecnologias'>
-                    <p>Bases de datos con MYSQL</p>
+                    <p>MYSQL</p>
                 </li>
                 <li className='ilDeTecnologias'>
                     <p>NODE</p>
@@ -114,7 +114,10 @@ import { useParams } from 'react-router-dom'
             
             </div>
             </div>
+            </div>
 
+            
+            <div className='divgeneralMain'>
             <h2>Portfolio</h2>
 
             <section className='proyectosGeneral' >
@@ -145,8 +148,8 @@ import { useParams } from 'react-router-dom'
                     )
                 }
             </section>
-
-        </div>
+            </div>
+        
 
     </main>
 </div>
