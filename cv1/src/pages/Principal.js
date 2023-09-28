@@ -47,7 +47,7 @@ import { useParams } from 'react-router-dom'
         <div className='divgeneralMain'>
             <div class="imagenMasPresentacion">
                 <img class="imgCara" src="./img/Sin título.png"/>
-                <div>
+                <div className='presentacion'>
                 <h2>Presentacion</h2>
                 <p>Hola soy Mathias Reid tengo 21 años, estudio Desarrollo Web Full Stack, no tengo experiencia laboral
                     pero si academica, con ganas de trabajar y desarrollarme en el mundo laboral de la programacion, soy
@@ -75,7 +75,8 @@ import { useParams } from 'react-router-dom'
             </div>
             <div className='divDeInfo'>
             <h2>Domicilio</h2>
-            <p> SENILLOSA 415 caballito</p>
+            <p> SENILLOSA 415 Caballito</p>
+            <p>PEDRO CARRION 480 Zelaya</p>
             </div>
             <div className='divDeInfo'>         
             <h2>Tecnologias</h2>
@@ -118,7 +119,7 @@ import { useParams } from 'react-router-dom'
 
             
             <div className='divgeneralMain'>
-            <h2>Portfolio</h2>
+            <h2 className='subTitulos'>Portfolio</h2>
 
             <section className='proyectosGeneral' >
                     {
@@ -132,7 +133,7 @@ import { useParams } from 'react-router-dom'
              }
              </section>
                 
-            <h2>Certificados </h2>
+            <h2 className='subTitulos'>Certificados </h2>
             <section className='diplomas'>
                 
                 {

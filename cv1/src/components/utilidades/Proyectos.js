@@ -19,6 +19,7 @@ const proyectos = (props => {
     };
     //console.log(inicio+"hola")
     return (
+      <div><h2 className="titulosDecosas">{nombre} echo con un fin {tipo}</h2>
         <div className='proyectosDetalles'>
         <img src={imagenes} className='imgDetallesDeProyecto' />
      <section className='sectionDePaginasDetealles'><article  className='detallesDeInformacionDeProyecto'>
@@ -41,6 +42,7 @@ const proyectos = (props => {
         </section>
      </div>
     
+     </div>
         
         
        

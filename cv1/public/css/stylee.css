@@ -44,10 +44,11 @@ li{
 .imgCara{
     margin-right: 5px;
     border-radius: 30px;
+    padding: 10px;
 }
 footer{
     background-color: #8ddf9c;
-    padding: 10px;
+    padding: 15px;
     border-radius: 10px;
     display: flex;
     justify-content: space-evenly;
@@ -95,6 +96,8 @@ h1{
 .proyectosDetalles{
     display: flex;
     margin: 30px 5px;
+    padding: 30px;
+    height: auto;
     
 }
 .imgDetallesDeProyecto{
@@ -102,6 +105,7 @@ h1{
     margin: 15px 30px;
     border-radius: 30px;
     padding: 5px;
+    height: 100%;
 }
 .detallesDeInformacionDeProyecto{
     margin: 15px 30px;
@@ -116,6 +120,7 @@ h1{
     opacity: 1.0;
     margin: 5px 5px;
     width: 90%;
+    border-radius: 30px;
 
 }
 .sectionDePaginasDetealles{
@@ -129,6 +134,8 @@ h1{
     padding: 10px;
     border-radius: 30px;
     transition: all 0.3s ease-in-out;
+    display: block;
+    text-align: center;
 }
 .botonRegreso:hover {
     background-color:#fdfd96;
@@ -137,6 +144,7 @@ h1{
 
 
 .divDeBotonRegreso{
+   padding: 5px 30px;
    margin: 30px 10px; 
    
 }
@@ -150,14 +158,19 @@ h1{
 .formularioDelFooter{
     display: flex;
     flex-direction: column;
+    padding: 10px 0px;
+    margin: 10px 0px;
 }
 .divDeInfoGeneral{
     display: flex;
     justify-content: space-evenly;
 }
 .divDeInfo{
+    background-color: #ebb058;
     flex-direction: column;
-    margin: 5px 30px;
+    margin: 5px 0px;
+    padding: 15px;
+    border-radius: 10px;
 }
 .divDeInfoColubnas{
     display: grid;
@@ -185,4 +198,21 @@ ul{
 }
 .divContacto{
     display: contents;
+}
+.presentacion{
+    margin-left: 5px;
+}
+
+.subTitulos{
+    justify-content: center;
+    display: flex;
+    font-family: cursive;
+    background-color: #4faaab;
+    border-radius: 50px;
+}
+.titulosDecosas{
+   text-align: center;
+   background-color: #8EB695 ;
+   border-radius: 5px;
+   padding: 5px;
 }

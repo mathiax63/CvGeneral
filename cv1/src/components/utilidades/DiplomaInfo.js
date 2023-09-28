@@ -19,8 +19,8 @@ const diplomaInfo = (props => {
 
    //console.log(id)
     return (
-        
-        <div className='proyectosDetalles'>
+        <div> <h2 className="titulosDecosas">{titulo} en {academia}</h2>
+        <div className='proyectosDetalles'>      
         <img src={imagenes} className='imgDetallesDeProyecto' />
      <section className='sectionDePaginasDetealles'>
         <article  className='detallesDeInformacionDeProyecto'>
@@ -33,14 +33,17 @@ const diplomaInfo = (props => {
         <p>{descripcion} </p>
         <h3>Fecha de inicio y cierre</h3>
         <div className="textoDeFecha"><p className="textoInternoDeFecha">Del</p><p className="textoInternoDeFecha">{fechaDeInicio.toLocaleDateString("es-ES")}</p><p className="textoInternoDeFecha">al</p> <p className="textoInternoDeFecha" >{fechaDeCierre.toLocaleDateString("es-ES")}</p></div>
-        </article><div className="divDeBotonRegreso">
+        </article>
+        <div className="divDeBotonRegreso">
         <div dangerouslySetInnerHTML={{__html:body}} />
+        <a  onMouseOver={cambiarContenido}  onMouseOut={restaurarContenido} className='botonRegreso' href='/'>{contenido}</a>
         </div>
         
-        <a  onMouseOver={cambiarContenido}  onMouseOut={restaurarContenido} className='botonRegreso' href='/'>{contenido}</a>
+        
         
         </section>
         
+     </div>
      </div>
     
         
